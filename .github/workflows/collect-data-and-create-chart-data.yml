@@ -1,0 +1,35 @@
+name: workflow (collect data and create chart data)
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: '00 14 * * *' # 23:00 in JST
+
+jobs:
+  collect_data_and_create_chart_data:
+    name: job (collect data and create chart data)
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v2
+
+      - name: install python libraries
+        run: pip3 install -r ./requirements.txt
+
+      - name: get GitHub repositories list
+        run: python3 -m exastics.enumulate_github_repositories exastro-playbook-collection _reposlist
+
+      - name: get repositories data
+        run: python3 -m exastics.publish_github_api_releases exastro-playbook-collection _reposlist
+
+      - name: create chart data
+        run: python3 -m exastics.create_chart_data_github_download_count exastro-playbook-collection _reposlist
+
+      - name: push to GitHub
+        run: |
+            git config user.name github-actions
+            git config user.email github-actions@github.com
+            git add .
+            git status
+            git commit -m "GitHub Actions `TZ='Asia/Tokyo' date`"
+            git push
