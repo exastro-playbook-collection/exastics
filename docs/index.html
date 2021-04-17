@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
   <meta charset="utf-8">
 　<title>Exastro Playbook Collection Statistics</title> 
@@ -9,6 +8,16 @@
 
 <body>
   <div class="exastics-title"> Exastro Playbook Collection Statistics</div>
+
+  <table>
+    <tr>
+      <td><input type="button" value="For the past 30 dates" id="forThePast030Dates"></td>
+      <td><input type="button" value="For the past 60 dates" id="forThePast060Dates"></td>
+      <td><input type="button" value="For the past 180 dates" id="forThePast180Dates"></td>
+      <td><input type="button" value="For the past all dates" id="forThePastAllDates"></td>
+    </tr>
+  </table>
+
   <div id="chart-plain">
     <template id="chart-container-template">
       <div id="chart-container" class="exastics-chart-container">

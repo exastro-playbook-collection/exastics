@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-import exastics._collect
 import exastics._cleanup
+import exastics._collect
 import pathlib
 import sys
 import urllib.parse

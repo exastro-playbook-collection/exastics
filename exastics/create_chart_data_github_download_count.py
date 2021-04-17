@@ -2,8 +2,8 @@
 
 import datetime
 import dateutil.parser
-import exastics._chartdata
 import exastics._reposlist
+import exastics._chartdata
 import json
 import pathlib
 import os
@@ -23,6 +23,7 @@ class GitHubTag:
 class GitHubAsset:
     def __init__(self, asset):
         self.id = asset['id']
+        self.name = asset['name']
         self.download_count = asset['download_count']
 
 
@@ -93,15 +94,16 @@ if __name__ == '__main__':
     github_reositories = exastics._reposlist.publish_api(base_dir)
 
     chart_index = []
+    total_index = []
     for github_repository in github_reositories:
         base_dir = pathlib.PurePath(github_account, github_repository)
 
         output_file = pathlib.PurePath(f'./docs/assets/chart-data/{github_repository}-github-download-count.json')
 
-        chart_index_entry = {}
-        chart_index_entry['caption'] = f'{github_repository} download count'
-        chart_index_entry['data_file'] = f'assets/chart-data/{github_repository}-github-download-count.json'
-        chart_index.append(chart_index_entry)
+        chart_index.append({
+            'caption'   : f'{github_repository}',
+            'data_file' : f'assets/chart-data/{github_repository}-github-download-count.json'
+        })
 
         tag_time_series = {}
         for dt, github_releases in exastics._chartdata.get_datetime_and_json_data(base_dir):
@@ -112,7 +114,24 @@ if __name__ == '__main__':
         with open(output_file, 'w') as f:
             json.dump(chart_data, f, indent=4)
 
+        total_index.append({
+            'date': chart_data[0]["points"][-1]["x"],
+            'count': chart_data[0]["points"][-1]["y"],
+            'repos': github_repository
+        })
+
+    output_file = pathlib.PurePath(f'./docs/assets/chart-data/all-repos-github-download-count.json')
+
+    chart_index.insert(0, {
+        'caption'   : f'download count',
+        'data_file' : f'assets/chart-data/all-repos-github-download-count.json'
+    })
+
+    with open(output_file, 'w') as f:
+        json.dump(total_index, f, indent=4)
+
     output_file = pathlib.PurePath(f'./docs/assets/chart-index.json')
+
     with open(output_file, 'w') as f:
         json.dump(chart_index, f, indent=4)
 
