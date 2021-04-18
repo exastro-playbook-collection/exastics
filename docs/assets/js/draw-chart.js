@@ -56,6 +56,10 @@ function attachBarChart(context, chartData) {
 }
 
 function trimChartData(forPastDays, chartDataOrigin) {
+    if (forPastDays == 99999) {
+        return chartDataOrigin;
+    }
+    
     var chartDataTrimed = [];
     dateTrimed = new Date();
     dateTrimed.setDate(dateTrimed.getDate() - forPastDays);
