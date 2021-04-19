@@ -1,232 +1,232 @@
 [
     {
-        "date": "2021-04-18T23:18:48",
+        "date": "2021-04-19T23:20:02",
         "count": 1,
         "repos": "Apache24_extracting_linux"
     },
     {
-        "date": "2021-04-18T23:18:48",
+        "date": "2021-04-19T23:20:02",
         "count": 1,
         "repos": "Apache24_extracting_windows"
     },
     {
-        "date": "2021-04-18T23:18:48",
+        "date": "2021-04-19T23:20:02",
         "count": 1,
         "repos": "Apache24_gathering_linux"
     },
     {
-        "date": "2021-04-18T23:18:48",
+        "date": "2021-04-19T23:20:03",
         "count": 1,
         "repos": "Apache24_gathering_windows"
     },
     {
-        "date": "2021-04-18T23:18:48",
-        "count": 1,
+        "date": "2021-04-19T23:20:03",
+        "count": 2,
         "repos": "Apache24_WIN_install"
     },
     {
-        "date": "2021-04-18T23:18:49",
-        "count": 1,
+        "date": "2021-04-19T23:20:03",
+        "count": 2,
         "repos": "Apache24_WIN_ossetup"
     },
     {
-        "date": "2021-04-18T23:18:49",
-        "count": 1,
+        "date": "2021-04-19T23:20:03",
+        "count": 2,
         "repos": "Apache24_WIN_setup"
     },
     {
-        "date": "2021-04-18T23:18:49",
-        "count": 2,
+        "date": "2021-04-19T23:20:03",
+        "count": 3,
         "repos": "Apache_install"
     },
     {
-        "date": "2021-04-18T23:18:49",
-        "count": 2,
+        "date": "2021-04-19T23:20:03",
+        "count": 3,
         "repos": "Apache_setup"
     },
     {
-        "date": "2021-04-18T23:18:49",
-        "count": 8,
+        "date": "2021-04-19T23:20:04",
+        "count": 9,
         "repos": "gathering"
     },
     {
-        "date": "2021-04-18T23:18:49",
+        "date": "2021-04-19T23:20:04",
         "count": 1,
         "repos": "IIS_Install"
     },
     {
-        "date": "2021-04-18T23:18:49",
+        "date": "2021-04-19T23:20:04",
         "count": 1,
         "repos": "IIS_Setup"
     },
     {
-        "date": "2021-04-18T23:18:50",
+        "date": "2021-04-19T23:20:04",
         "count": 1,
         "repos": "IIS_WS2016_extracting"
     },
     {
-        "date": "2021-04-18T23:18:50",
+        "date": "2021-04-19T23:20:04",
         "count": 1,
         "repos": "IIS_WS2016_gathering"
     },
     {
-        "date": "2021-04-18T23:18:50",
+        "date": "2021-04-19T23:20:05",
         "count": 1,
         "repos": "Nginx_extracting"
     },
     {
-        "date": "2021-04-18T23:18:50",
+        "date": "2021-04-19T23:20:05",
         "count": 1,
         "repos": "Nginx_gathering"
     },
     {
-        "date": "2021-04-18T23:18:50",
-        "count": 1,
+        "date": "2021-04-19T23:20:05",
+        "count": 2,
         "repos": "Nginx_Install"
     },
     {
-        "date": "2021-04-18T23:18:50",
-        "count": 1,
+        "date": "2021-04-19T23:20:05",
+        "count": 2,
         "repos": "Nginx_OSSetup"
     },
     {
-        "date": "2021-04-18T23:18:50",
-        "count": 1,
+        "date": "2021-04-19T23:20:05",
+        "count": 2,
         "repos": "Nginx_Setup"
     },
     {
-        "date": "2021-04-18T23:18:51",
+        "date": "2021-04-19T23:20:05",
         "count": 7,
         "repos": "OS-RHEL7"
     },
     {
-        "date": "2021-04-18T23:18:51",
+        "date": "2021-04-19T23:20:06",
         "count": 5,
         "repos": "OS-RHEL8"
     },
     {
-        "date": "2021-04-18T23:18:51",
-        "count": 6,
+        "date": "2021-04-19T23:20:06",
+        "count": 7,
         "repos": "OS-Windows2016"
     },
     {
-        "date": "2021-04-18T23:18:51",
+        "date": "2021-04-19T23:20:06",
         "count": 9,
         "repos": "OS-Windows2019"
     },
     {
-        "date": "2021-04-18T23:18:51",
+        "date": "2021-04-19T23:20:06",
         "count": 1,
         "repos": "OS_extracting"
     },
     {
-        "date": "2021-04-18T23:18:51",
+        "date": "2021-04-19T23:20:06",
         "count": 1,
         "repos": "OS_gathering"
     },
     {
-        "date": "2021-04-18T23:18:52",
+        "date": "2021-04-19T23:20:06",
         "count": 1,
         "repos": "RHEL"
     },
     {
-        "date": "2021-04-18T23:18:52",
+        "date": "2021-04-19T23:20:07",
         "count": 1,
         "repos": "setup_paragen"
     },
     {
-        "date": "2021-04-18T23:18:52",
+        "date": "2021-04-19T23:20:07",
         "count": 1,
         "repos": "SqlServer_install"
     },
     {
-        "date": "2021-04-18T23:18:52",
+        "date": "2021-04-19T23:20:07",
         "count": 1,
         "repos": "SqlServer_preinstall"
     },
     {
-        "date": "2021-04-18T23:18:52",
+        "date": "2021-04-19T23:20:07",
         "count": 1,
         "repos": "Windows"
     },
     {
-        "date": "2021-04-18T23:18:52",
+        "date": "2021-04-19T23:20:07",
         "count": 1,
         "repos": "Zabbix40-Agent_install"
     },
     {
-        "date": "2021-04-18T23:18:52",
+        "date": "2021-04-19T23:20:07",
         "count": 1,
         "repos": "Zabbix40-Agent_regist"
     },
     {
-        "date": "2021-04-18T23:18:53",
+        "date": "2021-04-19T23:20:08",
         "count": 1,
         "repos": "Zabbix40-Agent_setup"
     },
     {
-        "date": "2021-04-18T23:18:53",
+        "date": "2021-04-19T23:20:08",
         "count": 1,
         "repos": "Zabbix40-Agent_WIN_install"
     },
     {
-        "date": "2021-04-18T23:18:53",
+        "date": "2021-04-19T23:20:08",
         "count": 1,
         "repos": "Zabbix40-Agent_WIN_ossetup"
     },
     {
-        "date": "2021-04-18T23:18:53",
+        "date": "2021-04-19T23:20:08",
         "count": 1,
         "repos": "Zabbix40-Agent_WIN_register"
     },
     {
-        "date": "2021-04-18T23:18:53",
+        "date": "2021-04-19T23:20:08",
         "count": 1,
         "repos": "Zabbix40-Agent_WIN_setup"
     },
     {
-        "date": "2021-04-18T23:18:53",
+        "date": "2021-04-19T23:20:08",
         "count": 1,
         "repos": "Zabbix40-Server_install"
     },
     {
-        "date": "2021-04-18T23:18:53",
+        "date": "2021-04-19T23:20:08",
         "count": 1,
         "repos": "Zabbix40-Server_ossetup"
     },
     {
-        "date": "2021-04-18T23:18:54",
+        "date": "2021-04-19T23:20:09",
         "count": 1,
         "repos": "Zabbix40-Server_setup"
     },
     {
-        "date": "2021-04-18T23:18:54",
-        "count": 1,
+        "date": "2021-04-19T23:20:09",
+        "count": 2,
         "repos": "Zabbix40_Agent_extracting_linux"
     },
     {
-        "date": "2021-04-18T23:18:54",
-        "count": 1,
+        "date": "2021-04-19T23:20:09",
+        "count": 2,
         "repos": "Zabbix40_Agent_extracting_windows"
     },
     {
-        "date": "2021-04-18T23:18:54",
-        "count": 1,
+        "date": "2021-04-19T23:20:09",
+        "count": 2,
         "repos": "Zabbix40_Agent_gathering_linux"
     },
     {
-        "date": "2021-04-18T23:18:54",
-        "count": 1,
+        "date": "2021-04-19T23:20:09",
+        "count": 2,
         "repos": "Zabbix40_Agent_gathering_windows"
     },
     {
-        "date": "2021-04-18T23:18:54",
-        "count": 1,
+        "date": "2021-04-19T23:20:09",
+        "count": 2,
         "repos": "Zabbix40_Server_extracting_linux"
     },
     {
-        "date": "2021-04-18T23:18:55",
-        "count": 1,
+        "date": "2021-04-19T23:20:10",
+        "count": 2,
         "repos": "Zabbix40_Server_gathering_linux"
     }
 ]
