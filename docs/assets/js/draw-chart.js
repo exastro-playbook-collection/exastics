@@ -11,7 +11,7 @@ var insertLabelPlugin = {
 
             context.fillStyle = 'rgb(0, 0, 0)';
             context.font = Chart.helpers.fontString(16, 'normal', 'Arial');
-            context.fillText('Total: ' + total_count.toString(), 20, 0);
+            context.fillText('Total: ' + total_count.toString(), 20, 30);
         });
     }
 };
