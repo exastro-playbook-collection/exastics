@@ -1,5 +1,5 @@
 // Define a plugin to provide data labels
-Chart.plugins.register({
+var dataLabelPlugin = {
     afterDatasetsDraw: function (chart, easing) {
         // To only draw at the end of animation, check for easing === 1
         var ctx = chart.ctx;
@@ -30,7 +30,7 @@ Chart.plugins.register({
             }
         });
     }
-});
+};
 
 function renderChartContainerTemplate(content, chartIndexEntry, chartNumber) {
     const chartContainerNode = content.querySelector('#chart-container');
@@ -80,11 +80,14 @@ function attachBarChart(context, chartData) {
             legend: {
                 display: false
             },
-            plugins: {
-                colorschemes: {
-                    scheme: 'brewer.DarkTwo8'
+            plugins: [
+                dataLabelPlugin,
+                {
+                    colorschemes: {
+                        scheme: 'brewer.DarkTwo8'
+                    }
                 }
-            }
+            ]
         }
     });
 }
