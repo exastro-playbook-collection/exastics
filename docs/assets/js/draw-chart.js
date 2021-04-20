@@ -10,7 +10,7 @@ var insertLabelPlugin = {
             });
 
             context.fillStyle = 'rgb(0, 0, 0)';
-            context.font = chart.helpers.fontString(16, 'normal', 'Arial');
+            context.font = chart.helpers.fontstring(16, 'normal', 'Arial');
             context.fillText('Total: ' + total_count.toString(), 30, 20);
         });
     }
