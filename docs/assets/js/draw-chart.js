@@ -4,15 +4,14 @@ var insertLabelPlugin = {
 
         chart.data.datasets.forEach(function (dataset, i) {
             var meta = chart.getDatasetMeta(i);
-            total = 0;
+            total_count = 0;
             meta.data.forEach(function (element, index) {
-                total = total + dataset.data[index];
+                total_count = total_count + dataset.data[index];
             });
 
-            var dataString = dataset.data[index].toString();
             context.fillStyle = 'rgb(0, 0, 0)';
             context.font = Chart.helpers.fontString(16, 'normal', 'Helvetica Neue');
-            context.fillText(dataString, 10, 10);
+            context.fillText('Total: ' + total_count.toString(), 10, 10);
         });
     }
 };
