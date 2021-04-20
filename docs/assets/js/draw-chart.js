@@ -20,6 +20,8 @@ function attachBarChart(context, chartData) {
         data.push(entry.count);
     }
 
+    context.fillText("Test", 0, 0);
+    
     const myBarChart = new Chart(context, {
         type: 'bar',
         data: {
