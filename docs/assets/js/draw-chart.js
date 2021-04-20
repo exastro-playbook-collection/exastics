@@ -80,8 +80,13 @@ function attachBarChart(context, chartData) {
             legend: {
                 display: false
             },
-            plugins: [dataLabelPlugin]
-        }
+            plugins: {
+                colorschemes: {
+                    scheme: 'brewer.DarkTwo8'
+                }
+            }
+        },
+        plugins: [dataLabelPlugin]
     });
 }
 
