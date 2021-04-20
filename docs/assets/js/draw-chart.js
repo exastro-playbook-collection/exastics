@@ -39,8 +39,6 @@ function attachBarChart(context, chartData) {
         labels.push(entry.repos);
         data.push(entry.count);
     }
-
-    context.fillText("Test", 0, 0);
     
     const myBarChart = new Chart(context, {
         type: 'bar',
@@ -73,7 +71,8 @@ function attachBarChart(context, chartData) {
                     scheme: 'brewer.DarkTwo8'
                 }
             }
-        }
+        },
+        plugins: [insertLabelPlugin]
     });
 }
 
