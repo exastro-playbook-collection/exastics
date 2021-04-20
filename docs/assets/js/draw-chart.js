@@ -7,7 +7,7 @@ var insertLabelPlugin = {
             total = 0;
             meta.data.forEach(function (element, index) {
                 total = total + dataset.data[index];
-            }
+            });
 
             var dataString = dataset.data[index].toString();
             context.fillStyle = 'rgb(0, 0, 0)';
