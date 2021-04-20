@@ -2,15 +2,15 @@ var insertLabelPlugin = {
     afterDatasetsDraw: function (chart, easing) {
         var context = chart.ctx;
 
-        chart.data.datasets.forEach(function (dataset, i) {
-            var meta = chart.getDatasetMeta(i);
-            total_count = 0;
-            meta.data.forEach(function (element, index) {
-                total_count = total_count + dataset.data[index];
+        chart.data.datasets.forEach(function (dataset, idx1) {
+            var meta = chart.getDatasetMeta(idx1);
+            var total_count = 0;
+            meta.data.forEach(function (element, idx2) {
+                total_count = total_count + dataset.data[idx2];
             });
 
             context.fillStyle = 'rgb(0, 0, 0)';
-            context.font = Chart.helpers.fontString(16, 'normal', 'Arial');
+            context.font = chart.helpers.fontString(16, 'normal', 'Arial');
             context.fillText('Total: ' + total_count.toString(), 30, 20);
         });
     }
