@@ -11,7 +11,7 @@ var dataLabelPlugin = {
                     // Draw the text in black, with the specified font
                     ctx.fillStyle = 'rgb(0, 0, 0)';
 
-                    var fontSize = 16;
+                    var fontSize = 8;
                     var fontStyle = 'normal';
                     var fontFamily = 'Helvetica Neue';
                     ctx.font = Chart.helpers.fontString(fontSize, fontStyle, fontFamily);
@@ -25,7 +25,7 @@ var dataLabelPlugin = {
 
                     var padding = 5;
                     var position = element.tooltipPosition();
-                    ctx.fillText(dataString, position.x, position.y - (fontSize / 2) - padding);
+                    ctx.fillText(dataString, position.x, position.y + padding);
                 });
             }
         });
