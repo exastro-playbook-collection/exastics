@@ -11,11 +11,10 @@ var insertLabelPlugin = {
 
             context.fillStyle = 'rgb(0, 0, 0)';
             context.font = Chart.helpers.fontString(16, 'normal', 'Arial');
-            context.fillText('Total: ' + total_count.toString(), 30, 20);
+            context.fillText('Total: ' + total_count.toString(), 10, 20);
         });
     }
 };
-
 
 function renderChartContainerTemplate(content, chartIndexEntry, chartNumber) {
     const chartContainerNode = content.querySelector('#chart-container');
