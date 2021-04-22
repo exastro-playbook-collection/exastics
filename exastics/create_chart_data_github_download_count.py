@@ -116,7 +116,8 @@ if __name__ == '__main__':
 
         total_index.append({
             'date': chart_data[0]["points"][-1]["x"],
-            'count': chart_data[0]["points"][-1]["y"],
+            'count_accum': chart_data[0]["points"][-1]["y"],
+            'count_today': chart_data[0]["points"][-1]["y"] - chart_data[0]["points"][-2]["y"],
             'repos': github_repository
         })
 
