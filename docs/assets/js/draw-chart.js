@@ -35,7 +35,7 @@ function attachBarChart(context, chartData) {
     var data = [];
     for (entry of chartData) {
         labels.push(entry.repos);
-        data.push(entry.count);
+        data.push(entry.count_accum);
     }
     
     const myBarChart = new Chart(context, {
