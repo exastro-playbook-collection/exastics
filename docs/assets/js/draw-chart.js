@@ -110,6 +110,7 @@ function attachLineChart(context, chartData) {
         datasets.push({
             label: entry.series,
             data: entry.points,
+            lineTension: 0,
             fill: false
         });
     }
