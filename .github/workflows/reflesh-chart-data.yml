@@ -1,10 +1,10 @@
-name: workflow (collect data and create chart data)
+name: workflow (reflesh chart data)
 on:
   workflow_dispatch:
 
 jobs:
-  collect_data_and_create_chart_data:
-    name: job (collect data and create chart data)
+  reflesh_chart_data:
+    name: job (reflesh chart data)
     runs-on: ubuntu-latest
     steps:
       - name: checkout repository
