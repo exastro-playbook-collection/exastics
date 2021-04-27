@@ -198,7 +198,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 .then(chartData => {
                     console.log(chartData)
                     const context = document.getElementById("chart-canvas-" + 0);
-                    attachBarChart(context, barData)
+                    attachBarChart(context, chartData)
+                    // attachBarChart(context, barData)
                 });
         });
 });
