@@ -167,36 +167,47 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch('assets/chart-index.json')
         .then(response => response.json())
         .then(chartIndex => {
-            const content = document.importNode(templateContent, true);
-            const renderedContent = renderChartContainerTemplate(content, chartIndex[0], 0);
-            parentNode.appendChild(renderedContent);
+            {
+                var barData = new Array(chartIndex.length - 1)
+                for (let i = 1; i < chartIndex.length; i++) {
+                    fetch(chartIndex[i].data_file)
+                        .then(response => response.json())
+                        .then(chartDataOrigin => trimChartData(forThePastDates, chartDataOrigin))
+                        .then(chartData => {
+                            barData[i-1] = {
+                                date: chartData[0].points.slice(-1)[0].x,
+                                count_accum: chartData[0].points.slice(-1)[0].y,
+                                repos: chartIndex[i].caption
+                            }
+                        });
+                }
+                console.log(barData)
+                
+                const content = document.importNode(templateContent, true);
+                const renderedContent = renderChartContainerTemplate(content, chartIndex[0], 0);
+                parentNode.appendChild(renderedContent);
 
-            var results = []
+                fetch(chartIndex[0].data_file)
+                    .then(response => response.json())
+                    .then(chartData => {
+                        console.log(chartData)
+                        const context = document.getElementById("chart-canvas-" + 0);
+                        attachBarChart(context, chartData)
+                    });
+            }
             for (let i = 1; i < chartIndex.length; i++) {
                 const content = document.importNode(templateContent, true);
                 const renderedContent = renderChartContainerTemplate(content, chartIndex[i], i);
                 parentNode.appendChild(renderedContent);
 
-                results.push(
-                    fetch(chartIndex[i].data_file)
-                        .then(response => response.json())
-                        .then(chartDataOrigin => trimChartData(forThePastDates, chartDataOrigin))
-                        .then(chartData => {
-                            const context = document.getElementById("chart-canvas-" + i);
-                            attachLineChart(context, chartData)
-
-                            var barData = {
-                                date: chartData[0].points.slice(-1)[0].x,
-                                count_accum: chartData[0].points.slice(-1)[0].y,
-                                repos: chartIndex[i].caption
-                            }
-                            return barData; 
-                        })
-                )
+                fetch(chartIndex[i].data_file)
+                    .then(response => response.json())
+                    .then(chartDataOrigin => trimChartData(forThePastDates, chartDataOrigin))
+                    .then(chartData => {
+                        const context = document.getElementById("chart-canvas-" + i);
+                        attachLineChart(context, chartData)
+                    });
             }
-            console.log(await Primise.all(results));
-            const context0 = document.getElementById("chart-canvas-" + 0);
-            attachBarChart(context0, await Primise.all(results));
         });
 });
 
