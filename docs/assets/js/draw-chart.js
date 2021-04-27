@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         .then(response => response.json())
                         .then(chartDataOrigin => trimChartData(forThePastDates, chartDataOrigin))
                         .then(chartData => {
-                            barData.append({
+                            barData.push({
                                 date: chartData[0].points.slice(-1)[0].x,
                                 count: chartData[0].points.slice(-1)[0].y,
                                 repos: chartIndex[i].caption
