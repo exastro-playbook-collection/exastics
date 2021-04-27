@@ -172,7 +172,6 @@ document.addEventListener('DOMContentLoaded', () => {
             parentNode.appendChild(renderedContent);
 
             var results = new Array(chartIndex.length - 1)
-            var barData = new Array(chartIndex.length - 1)
             for (let i = 1; i < chartIndex.length; i++) {
                 const content = document.importNode(templateContent, true);
                 const renderedContent = renderChartContainerTemplate(content, chartIndex[i], i);
@@ -185,16 +184,16 @@ document.addEventListener('DOMContentLoaded', () => {
                         const context = document.getElementById("chart-canvas-" + i);
                         attachLineChart(context, chartData)
 
-                        barData[i-1] = {
+                        return({
                             date: chartData[0].points.slice(-1)[0].x,
                             count_accum: chartData[0].points.slice(-1)[0].y,
                             repos: chartIndex[i].caption
-                        }
-                        return(barData[i-1]);
+                        });
                     });
             }
-            wait_promises(results)
-
+            barData = wait_promises(results)
+            console.log(barData)
+        
             fetch(chartIndex[0].data_file)
                 .then(response => response.json())
                 .then(chartData => {
