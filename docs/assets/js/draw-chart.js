@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 repos: chartIndex[i].caption
                             }
                             return barData; 
-                        });
+                        })
                 )
             }
             const context0 = document.getElementById("chart-canvas-" + 0);
