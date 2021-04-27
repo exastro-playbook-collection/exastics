@@ -186,20 +186,15 @@ document.addEventListener('DOMContentLoaded', () => {
                             count: chartData[0].points.slice(-1)[0].y,
                             repos: chartIndex[i].caption
                         }
+                        console.log(i)
 
                         const context = document.getElementById("chart-canvas-" + i);
                         attachLineChart(context, chartData)
                     });
             }
-            console.log(barData)
-
-            fetch(chartIndex[0].data_file)
-                .then(response => response.json())
-                .then(chartData => {
-                    console.log(chartData)
-                    const context = document.getElementById("chart-canvas-" + 0);
-                    attachBarChart(context, chartData)
-                });
+            console.log(0)
+            const context = document.getElementById("chart-canvas-" + 0);
+            attachBarChart(context, barData)
         });
 });
 
