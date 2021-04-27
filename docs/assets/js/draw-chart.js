@@ -161,6 +161,18 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch('assets/chart-index.json')
         .then(response => response.json())
         .then(chartIndex => {
+            {
+                const content = document.importNode(templateContent, true);
+                const renderedContent = renderChartContainerTemplate(content, chartIndex[0], 0);
+                parentNode.appendChild(renderedContent);
+
+                fetch(chartIndex[0].data_file)
+                    .then(response => response.json())
+                    .then(chartData => {
+                        const context = document.getElementById("chart-canvas-" + 0);
+                        attachBarChart(context, chartData)
+                    });
+            }
             for (let i = 1; i < chartIndex.length; i++) {
                 const content = document.importNode(templateContent, true);
                 const renderedContent = renderChartContainerTemplate(content, chartIndex[i], i);
@@ -172,18 +184,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     .then(chartData => {
                         const context = document.getElementById("chart-canvas-" + i);
                         attachLineChart(context, chartData)
-                    });
-            }
-            {
-                const content = document.importNode(templateContent, true);
-                const renderedContent = renderChartContainerTemplate(content, chartIndex[0], 0);
-                parentNode.appendChild(renderedContent);
-
-                fetch(chartIndex[0].data_file)
-                    .then(response => response.json())
-                    .then(chartData => {
-                        const context = document.getElementById("chart-canvas-" + 0);
-                        attachBarChart(context, chartData)
                     });
             }
         });
