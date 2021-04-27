@@ -194,9 +194,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         })
                 )
             }
-            console.log(await Primise.all(results))
+            console.log(await Primise.all(results));
             const context0 = document.getElementById("chart-canvas-" + 0);
-            attachBarChart(context0, await Primise.all(results))
+            attachBarChart(context0, await Primise.all(results));
         });
 });
 
