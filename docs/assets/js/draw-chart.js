@@ -190,7 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             count_accum: chartData[0].points.slice(-1)[0].y,
                             repos: chartIndex[i].caption
                         }
-                        resolve(barData[i-1]);
+                        return(barData[i-1]);
                     });
             }
             console.log(results)
