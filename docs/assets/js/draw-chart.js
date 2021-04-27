@@ -237,5 +237,5 @@ forThePastAllDates.addEventListener('click', () => {
 });
 
 async function wait_promises(results) {
-    console.log(results)
+    console.log(await Promise.all(results))
 }
