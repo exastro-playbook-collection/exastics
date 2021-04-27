@@ -193,7 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         return(barData[i-1]);
                     });
             }
-            console.log(results)
+            wait_promises(results)
 
             fetch(chartIndex[0].data_file)
                 .then(response => response.json())
@@ -235,3 +235,7 @@ forThePastAllDates.addEventListener('click', () => {
     sessionStorage.removeItem('forThePastDates');
     location.reload();
 });
+
+async function wait_promises(results) {
+    console.log(results)
+}
