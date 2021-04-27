@@ -55,12 +55,6 @@
     },
     {
         "date": "2021-04-26T23:21:16",
-        "count_accum": 14,
-        "count_today": 1,
-        "repos": "gathering"
-    },
-    {
-        "date": "2021-04-26T23:21:16",
         "count_accum": 2,
         "count_today": 0,
         "repos": "IIS_Install"

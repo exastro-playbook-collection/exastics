@@ -40,10 +40,6 @@
         "data_file": "assets/chart-data/Apache_setup-github-download-count.json"
     },
     {
-        "caption": "gathering",
-        "data_file": "assets/chart-data/gathering-github-download-count.json"
-    },
-    {
         "caption": "IIS_Install",
         "data_file": "assets/chart-data/IIS_Install-github-download-count.json"
     },
