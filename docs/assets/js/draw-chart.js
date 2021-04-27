@@ -168,6 +168,15 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(response => response.json())
         .then(chartIndex => {
             {
+                for (let i = 1; i < chartIndex.length; i++) {
+                    fetch(chartIndex[i].data_file)
+                        .then(response => response.json())
+                        .then(chartDataOrigin => trimChartData(forThePastDates, chartDataOrigin))
+                        .then(chartData => {
+                            console.log(chartData)
+                        });
+                }
+
                 const content = document.importNode(templateContent, true);
                 const renderedContent = renderChartContainerTemplate(content, chartIndex[0], 0);
                 parentNode.appendChild(renderedContent);
@@ -175,6 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 fetch(chartIndex[0].data_file)
                     .then(response => response.json())
                     .then(chartData => {
+                        console.log(chartData)
                         const context = document.getElementById("chart-canvas-" + 0);
                         attachBarChart(context, chartData)
                     });
