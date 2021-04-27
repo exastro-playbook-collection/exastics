@@ -104,10 +104,6 @@
         "data_file": "assets/chart-data/RHEL-github-download-count.json"
     },
     {
-        "caption": "setup_paragen",
-        "data_file": "assets/chart-data/setup_paragen-github-download-count.json"
-    },
-    {
         "caption": "SqlServer_install",
         "data_file": "assets/chart-data/SqlServer_install-github-download-count.json"
     },

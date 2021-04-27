@@ -151,12 +151,6 @@
     },
     {
         "date": "2021-04-26T23:21:19",
-        "count_accum": 6,
-        "count_today": 0,
-        "repos": "setup_paragen"
-    },
-    {
-        "date": "2021-04-26T23:21:19",
         "count_accum": 2,
         "count_today": 0,
         "repos": "SqlServer_install"
