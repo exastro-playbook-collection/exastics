@@ -96,7 +96,7 @@ if __name__ == '__main__':
     chart_index = []
     total_index = []
     for github_repository in github_reositories:
-        if (github_repository != "gathering" and github_repository != "gathering"):
+        if (github_repository != "gathering" and github_repository != "setup_paragen"):
             print(github_repository)
 
             base_dir = pathlib.PurePath(github_account, github_repository)
