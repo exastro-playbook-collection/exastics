@@ -192,6 +192,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         attachLineChart(context, chartData)
                     });
             }
+            return barData
+        })
+        .then(barData => {
             console.log(0)
             const context = document.getElementById("chart-canvas-" + 0);
             attachBarChart(context, barData)
