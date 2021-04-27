@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const renderedContent = renderChartContainerTemplate(content, chartIndex[0], 0);
             parentNode.appendChild(renderedContent);
 
-            var barData = new Array(chartIndex.length)
+            var barData = new Array(chartIndex.length-1)
             for (let i = 1; i < chartIndex.length; i++) {
                 const content = document.importNode(templateContent, true);
                 const renderedContent = renderChartContainerTemplate(content, chartIndex[i], i);
@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     .then(response => response.json())
                     .then(chartDataOrigin => trimChartData(forThePastDates, chartDataOrigin))
                     .then(chartData => {
-                        barData[i] = {
+                        barData[i-1] = {
                             date: chartData[0].points.slice(-1)[0].x,
                             count: chartData[0].points.slice(-1)[0].y,
                             repos: chartIndex[i].caption
