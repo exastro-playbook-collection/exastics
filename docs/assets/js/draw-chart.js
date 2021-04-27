@@ -171,6 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const renderedContent = renderChartContainerTemplate(content, chartIndex[0], 0);
             parentNode.appendChild(renderedContent);
 
+            var results = []
             var barData = new Array(chartIndex.length - 1)
             for (let i = 1; i < chartIndex.length; i++) {
                 const content = document.importNode(templateContent, true);
@@ -189,6 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             count_accum: chartData[0].points.slice(-1)[0].y,
                             repos: chartIndex[i].caption
                         }
+                        resolve(barData[i-1]);
                     });
             }
             console.log(barData)
