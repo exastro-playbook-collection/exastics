@@ -97,6 +97,8 @@ if __name__ == '__main__':
     total_index = []
     for github_repository in github_reositories:
         if (github_repository != "gathering" and github_repository != "gathering"):
+            print(github_repository)
+
             base_dir = pathlib.PurePath(github_account, github_repository)
 
             output_file = pathlib.PurePath(f'./docs/assets/chart-data/{github_repository}-github-download-count.json')
