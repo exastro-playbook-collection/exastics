@@ -167,34 +167,11 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch('assets/chart-index.json')
         .then(response => response.json())
         .then(chartIndex => {
-            {
-                var barData = []
-                for (let i = 1; i < chartIndex.length; i++) {
-                    fetch(chartIndex[i].data_file)
-                        .then(response => response.json())
-                        .then(chartDataOrigin => trimChartData(forThePastDates, chartDataOrigin))
-                        .then(chartData => {
-                            barData.push({
-                                date: chartData[0].points.slice(-1)[0].x,
-                                count: chartData[0].points.slice(-1)[0].y,
-                                repos: chartIndex[i].caption
-                            })
-                        });
-                }
-                console.log(barData)
-                
-                const content = document.importNode(templateContent, true);
-                const renderedContent = renderChartContainerTemplate(content, chartIndex[0], 0);
-                parentNode.appendChild(renderedContent);
+            const content = document.importNode(templateContent, true);
+            const renderedContent = renderChartContainerTemplate(content, chartIndex[0], 0);
+            parentNode.appendChild(renderedContent);
 
-                fetch(chartIndex[0].data_file)
-                    .then(response => response.json())
-                    .then(chartData => {
-                        console.log(chartData)
-                        const context = document.getElementById("chart-canvas-" + 0);
-                        attachBarChart(context, chartData)
-                    });
-            }
+            var barData = []
             for (let i = 1; i < chartIndex.length; i++) {
                 const content = document.importNode(templateContent, true);
                 const renderedContent = renderChartContainerTemplate(content, chartIndex[i], i);
@@ -204,10 +181,25 @@ document.addEventListener('DOMContentLoaded', () => {
                     .then(response => response.json())
                     .then(chartDataOrigin => trimChartData(forThePastDates, chartDataOrigin))
                     .then(chartData => {
+                        barData.push({
+                            date: chartData[0].points.slice(-1)[0].x,
+                            count: chartData[0].points.slice(-1)[0].y,
+                            repos: chartIndex[i].caption
+                        })
+
                         const context = document.getElementById("chart-canvas-" + i);
                         attachLineChart(context, chartData)
                     });
             }
+            console.log(barData)
+
+            fetch(chartIndex[0].data_file)
+                .then(response => response.json())
+                .then(chartData => {
+                    console.log(chartData)
+                    const context = document.getElementById("chart-canvas-" + 0);
+                    attachBarChart(context, chartData)
+                });
         });
 });
 
