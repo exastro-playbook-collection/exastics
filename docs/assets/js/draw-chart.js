@@ -169,6 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(chartIndex => {
             {
                 for (let i = 1; i < chartIndex.length; i++) {
+                    console.log(chartIndex[i].caption)
                     fetch(chartIndex[i].data_file)
                         .then(response => response.json())
                         .then(chartDataOrigin => trimChartData(forThePastDates, chartDataOrigin))
