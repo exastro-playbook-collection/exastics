@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         .then(response => response.json())
                         .then(chartDataOrigin => trimChartData(forThePastDates, chartDataOrigin))
                         .then(chartData => {
-                            console.log(chartData)
+                            console.log(chartData[0].points.slice(-1)[0])
                         });
                 }
 
