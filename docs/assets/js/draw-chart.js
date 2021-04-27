@@ -11,7 +11,7 @@ var insertLabelPlugin = {
 
             context.fillStyle = 'rgb(0, 0, 0)';
             context.font = Chart.helpers.fontString(16, 'normal', 'Arial');
-            context.fillText('Rolel: ' + (idx2 + 1).toString() + "\n", 10, 20);
+            context.fillText('Rolel: ' + dataset.data.len().toString() + "\n", 10, 20);
             context.fillText('Total: ' + total_count.toString() + "\n", 10, 50);
         });
     }
