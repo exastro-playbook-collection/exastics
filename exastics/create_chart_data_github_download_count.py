@@ -96,31 +96,34 @@ if __name__ == '__main__':
     chart_index = []
     total_index = []
     for github_repository in github_reositories:
-        if (github_repository != "gathering" and github_repository != "setup_paragen"):
-            base_dir = pathlib.PurePath(github_account, github_repository)
+        if (github_repository == "gathering" or github_repository == "setup_paragen"):
+            print(github_repository)
+            continue
+            
+        base_dir = pathlib.PurePath(github_account, github_repository)
 
-            output_file = pathlib.PurePath(f'./docs/assets/chart-data/{github_repository}-github-download-count.json')
+        output_file = pathlib.PurePath(f'./docs/assets/chart-data/{github_repository}-github-download-count.json')
 
-            chart_index.append({
-                'caption'   : f'{github_repository}',
-                'data_file' : f'assets/chart-data/{github_repository}-github-download-count.json'
-            })
+        chart_index.append({
+            'caption'   : f'{github_repository}',
+            'data_file' : f'assets/chart-data/{github_repository}-github-download-count.json'
+        })
 
-            tag_time_series = {}
-            for dt, github_releases in exastics._chartdata.get_datetime_and_json_data(base_dir):
-                collect_tag_time_series(tag_time_series, dt, github_releases)
+        tag_time_series = {}
+        for dt, github_releases in exastics._chartdata.get_datetime_and_json_data(base_dir):
+            collect_tag_time_series(tag_time_series, dt, github_releases)
 
-            chart_data = create_chart_data(tag_time_series)
+        chart_data = create_chart_data(tag_time_series)
 
-            with open(output_file, 'w') as f:
-                json.dump(chart_data, f, indent=4)
+        with open(output_file, 'w') as f:
+            json.dump(chart_data, f, indent=4)
 
-            total_index.append({
-                'date': chart_data[0]["points"][-1]["x"],
-                'count_accum': chart_data[0]["points"][-1]["y"],
-                'count_today': chart_data[0]["points"][-1]["y"] - chart_data[0]["points"][-2]["y"],
-                'repos': github_repository
-            })
+        total_index.append({
+            'date': chart_data[0]["points"][-1]["x"],
+            'count_accum': chart_data[0]["points"][-1]["y"],
+            'count_today': chart_data[0]["points"][-1]["y"] - chart_data[0]["points"][-2]["y"],
+            'repos': github_repository
+        })
 
     output_file = pathlib.PurePath(f'./docs/assets/chart-data/all-repos-github-download-count.json')
 
