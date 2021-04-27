@@ -171,33 +171,31 @@ document.addEventListener('DOMContentLoaded', () => {
             const renderedContent = renderChartContainerTemplate(content, chartIndex[0], 0);
             parentNode.appendChild(renderedContent);
 
+            var results = []
             var barData = new Array(chartIndex.length-1)
             for (let i = 1; i < chartIndex.length; i++) {
                 const content = document.importNode(templateContent, true);
                 const renderedContent = renderChartContainerTemplate(content, chartIndex[i], i);
                 parentNode.appendChild(renderedContent);
 
-                fetch(chartIndex[i].data_file)
-                    .then(response => response.json())
-                    .then(chartDataOrigin => trimChartData(forThePastDates, chartDataOrigin))
-                    .then(chartData => {
-                        barData[i-1] = {
-                            date: chartData[0].points.slice(-1)[0].x,
-                            count: chartData[0].points.slice(-1)[0].y,
-                            repos: chartIndex[i].caption
-                        }
-                        console.log(i)
+                results.push(
+                    fetch(chartIndex[i].data_file)
+                        .then(response => response.json())
+                        .then(chartDataOrigin => trimChartData(forThePastDates, chartDataOrigin))
+                        .then(chartData => {
+                            const context = document.getElementById("chart-canvas-" + i);
+                            attachLineChart(context, chartData)
 
-                        const context = document.getElementById("chart-canvas-" + i);
-                        attachLineChart(context, chartData)
-                    });
+                            return {
+                                date: chartData[0].points.slice(-1)[0].x,
+                                count_accum: chartData[0].points.slice(-1)[0].y,
+                                repos: chartIndex[i].caption
+                            }
+                        });
+                )
             }
-            return barData
-        })
-        .then(barData => {
-            console.log(0)
-            const context = document.getElementById("chart-canvas-" + 0);
-            attachBarChart(context, barData)
+            const context0 = document.getElementById("chart-canvas-" + 0);
+            attachBarChart(context0, await Primise.all(results))
         });
 });
 
