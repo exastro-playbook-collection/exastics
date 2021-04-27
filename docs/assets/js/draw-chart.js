@@ -4,14 +4,16 @@ var insertLabelPlugin = {
 
         chart.data.datasets.forEach(function (dataset, idx1) {
             var meta = chart.getDatasetMeta(idx1);
+            var role_count = 0;
             var total_count = 0;
             meta.data.forEach(function (element, idx2) {
+                role_count = role_count + 1;
                 total_count = total_count + dataset.data[idx2];
             });
 
             context.fillStyle = 'rgb(0, 0, 0)';
             context.font = Chart.helpers.fontString(16, 'normal', 'Arial');
-            context.fillText('Rolel: ' + dataset.data.len().toString() + "\n", 10, 20);
+            context.fillText('Role: ' + role_count.toString() + "\n", 10, 20);
             context.fillText('Total: ' + total_count.toString() + "\n", 10, 50);
         });
     }
