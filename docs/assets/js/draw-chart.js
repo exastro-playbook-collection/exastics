@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const renderedContent = renderChartContainerTemplate(content, chartIndex[0], 0);
             parentNode.appendChild(renderedContent);
 
-            var barData = []
+            var barData = new Array(chartIndex.length)
             for (let i = 1; i < chartIndex.length; i++) {
                 const content = document.importNode(templateContent, true);
                 const renderedContent = renderChartContainerTemplate(content, chartIndex[i], i);
@@ -181,11 +181,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     .then(response => response.json())
                     .then(chartDataOrigin => trimChartData(forThePastDates, chartDataOrigin))
                     .then(chartData => {
-                        barData.push({
+                        barData[i] = {
                             date: chartData[0].points.slice(-1)[0].x,
                             count: chartData[0].points.slice(-1)[0].y,
                             repos: chartIndex[i].caption
-                        })
+                        }
 
                         const context = document.getElementById("chart-canvas-" + i);
                         attachLineChart(context, chartData)
