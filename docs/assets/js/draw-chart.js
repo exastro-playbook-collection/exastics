@@ -78,6 +78,12 @@ function attachBarChart(context, chartData) {
 }
 
 function trimChartData(forPastDays, chartDataOrigin) {
+    // データトリミングには以下の制限事項がある。
+    // トリミングの際、期間内で最初に見つかったデータを０とする。
+    // このため、「期間内に開始し、最初のデータが０で無い」場合は
+    // 最初のデータが無視されてしまう。
+    // データ全体表示の際だけでもこれを補正するため、データ全体
+    // 表示の時は、そもそもトリミングを実施しない仕様とする。
     if (forPastDays == 99999) {
         return chartDataOrigin;
     }
