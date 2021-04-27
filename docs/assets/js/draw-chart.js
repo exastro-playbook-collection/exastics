@@ -190,7 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     .then(chartData => {
                         const context = document.getElementById("chart-canvas-" + i);
                         attachLineChart(context, chartData)
-                        console.log(chartData
+                        console.log(chartData)
                     });
             }
         });
