@@ -9,9 +9,6 @@ var insertLabelPlugin = {
             meta.data.forEach(function (element, idx2) {
                 role_count = role_count + 1;
                 total_count = total_count + dataset.data[idx2];
-                console.log("------------------------")
-                console.log(dataset.data[idx2])
-                console.log(element)
             });
 
             context.fillStyle = 'rgb(0, 0, 0)';
