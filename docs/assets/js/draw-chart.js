@@ -168,16 +168,21 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(response => response.json())
         .then(chartIndex => {
             {
+                var barData = []
                 for (let i = 1; i < chartIndex.length; i++) {
-                    console.log(chartIndex[i].caption)
                     fetch(chartIndex[i].data_file)
                         .then(response => response.json())
                         .then(chartDataOrigin => trimChartData(forThePastDates, chartDataOrigin))
                         .then(chartData => {
-                            console.log(chartData[0].points.slice(-1)[0])
+                            barData.append({
+                                date: chartData[0].points.slice(-1)[0].x,
+                                count: chartData[0].points.slice(-1)[0].y,
+                                repos: chartIndex[i].caption
+                            })
                         });
                 }
-
+                console.log(barData)
+                
                 const content = document.importNode(templateContent, true);
                 const renderedContent = renderChartContainerTemplate(content, chartIndex[0], 0);
                 parentNode.appendChild(renderedContent);
