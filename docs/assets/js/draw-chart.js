@@ -171,14 +171,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const renderedContent = renderChartContainerTemplate(content, chartIndex[0], 0);
             parentNode.appendChild(renderedContent);
 
-            var results = []
+            var results = new Array(chartIndex.length - 1)
             var barData = new Array(chartIndex.length - 1)
             for (let i = 1; i < chartIndex.length; i++) {
                 const content = document.importNode(templateContent, true);
                 const renderedContent = renderChartContainerTemplate(content, chartIndex[i], i);
                 parentNode.appendChild(renderedContent);
 
-                fetch(chartIndex[i].data_file)
+                results[i-1] = fetch(chartIndex[i].data_file)
                     .then(response => response.json())
                     .then(chartDataOrigin => trimChartData(forThePastDates, chartDataOrigin))
                     .then(chartData => {
@@ -193,7 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         resolve(barData[i-1]);
                     });
             }
-            console.log(barData)
+            console.log(results)
 
             fetch(chartIndex[0].data_file)
                 .then(response => response.json())
