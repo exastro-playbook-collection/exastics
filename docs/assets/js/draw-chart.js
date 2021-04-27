@@ -190,7 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 date: chartData[0].points.slice(-1)[0].x,
                                 count_accum: chartData[0].points.slice(-1)[0].y,
                                 repos: chartIndex[i].caption
-                            }
+                            };
                         });
                 )
             }
