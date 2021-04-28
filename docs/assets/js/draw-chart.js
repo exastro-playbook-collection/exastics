@@ -158,7 +158,7 @@ function attachBarChart(context, chartData) {
 }
 
 async function wait_barData_Promises(barData) {
-    const context = document.getElementById("chart-canvas-" + 0);
+    const context = document.getElementById("chart-canvas-" + 99999);
     attachBarChart(context, await Promise.all(barData))
 }
 
@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(chartIndex => {
             const content = document.importNode(templateContent, true);
             const renderedContent = renderChartContainerTemplate(
-                            content, {"caption": "Download count"}, chartIndex.length);
+                            content, {"caption": "Download count"}, 99999);
             parentNode.appendChild(renderedContent);
 
             var barData = new Array(chartIndex.length)
