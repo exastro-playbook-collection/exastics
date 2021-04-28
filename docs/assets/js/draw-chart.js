@@ -118,7 +118,7 @@ function attachBarChart(context, chartData) {
     var data = [];
     for (entry of chartData) {
         labels.push(entry.repos);
-        data.push(entry.count_accum);
+        data.push(entry.count);
     }
     
     const myBarChart = new Chart(context, {
@@ -159,7 +159,7 @@ function attachBarChart(context, chartData) {
 
 async function wait_barData_Promises(results) {
     const context = document.getElementById("chart-canvas-" + 0);
-    attachBarChart(context, await Promise.all(results))
+    attachBarChart(context, await Promise.all(barData))
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -176,13 +176,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const renderedContent = renderChartContainerTemplate(content, chartIndex[0], 0);
             parentNode.appendChild(renderedContent);
 
-            var results = new Array(chartIndex.length - 1)
+            var barData = new Array(chartIndex.length - 1)
             for (let i = 1; i < chartIndex.length; i++) {
                 const content = document.importNode(templateContent, true);
                 const renderedContent = renderChartContainerTemplate(content, chartIndex[i], i);
                 parentNode.appendChild(renderedContent);
 
-                results[i-1] = fetch(chartIndex[i].data_file)
+                barData[i-1] = fetch(chartIndex[i].data_file)
                     .then(response => response.json())
                     .then(chartDataOrigin => trimChartData(forThePastDates, chartDataOrigin))
                     .then(chartData => {
@@ -191,21 +191,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
                         return({
                             date: chartData[0].points.slice(-1)[0].x,
-                            count_accum: chartData[0].points.slice(-1)[0].y,
+                            count: chartData[0].points.slice(-1)[0].y,
                             repos: chartIndex[i].caption
                         });
                     });
             }
-            barData = wait_barData_Promises(results)
-        
-//            fetch(chartIndex[0].data_file)
-//                .then(response => response.json())
-//                .then(chartData => {
-//                    console.log(chartData)
-//                    const context = document.getElementById("chart-canvas-" + 0);
-//                    attachBarChart(context, chartData)
-//                    // attachBarChart(context, barData)
-//                });
+            wait_barData_Promises(barData)
         });
 });
 
