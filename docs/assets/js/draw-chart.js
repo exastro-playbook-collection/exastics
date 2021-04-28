@@ -33,50 +33,6 @@ function renderChartContainerTemplate(content, chartIndexEntry, chartNumber) {
     return content;
 }
 
-function attachBarChart(context, chartData) {
-    var labels = [];
-    var data = [];
-    for (entry of chartData) {
-        labels.push(entry.repos);
-        data.push(entry.count_accum);
-    }
-    
-    const myBarChart = new Chart(context, {
-        type: 'bar',
-        data: {
-            labels: labels,
-            datasets: [{
-                data: data
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                xAxes: [{
-                    ticks: {
-                        autoSkip: false
-                    }
-                }],
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            },
-            legend: {
-                display: false
-            },
-            plugins: {
-                colorschemes: {
-                    scheme: 'brewer.DarkTwo8'
-                }
-            }
-        },
-        plugins: [insertLabelPlugin]
-    });
-}
-
 function trimChartData(forPastDays, chartDataOrigin) {
     // データトリミングには以下の制限事項がある。
     // トリミングの際、期間内で最初に見つかったデータを０とする。
@@ -157,6 +113,55 @@ function attachLineChart(context, chartData) {
     });
 }
 
+function attachBarChart(context, chartData) {
+    var labels = [];
+    var data = [];
+    for (entry of chartData) {
+        labels.push(entry.repos);
+        data.push(entry.count_accum);
+    }
+    
+    const myBarChart = new Chart(context, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                data: data
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                xAxes: [{
+                    ticks: {
+                        autoSkip: false
+                    }
+                }],
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            },
+            legend: {
+                display: false
+            },
+            plugins: {
+                colorschemes: {
+                    scheme: 'brewer.DarkTwo8'
+                }
+            }
+        },
+        plugins: [insertLabelPlugin]
+    });
+}
+
+async function wait_barData_Promises(results) {
+    const context = document.getElementById("chart-canvas-" + 0);
+    attachBarChart(context, await Promise.all(results))
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const saveState = sessionStorage.getItem('forThePastDates');
     const forThePastDates = saveState ? parseInt(saveState, 10) : 99999;
@@ -191,17 +196,16 @@ document.addEventListener('DOMContentLoaded', () => {
                         });
                     });
             }
-            barData = wait_promises(results)
-            console.log(barData)
+            barData = wait_barData_Promises(results)
         
-            fetch(chartIndex[0].data_file)
-                .then(response => response.json())
-                .then(chartData => {
-                    console.log(chartData)
-                    const context = document.getElementById("chart-canvas-" + 0);
-                    attachBarChart(context, chartData)
-                    // attachBarChart(context, barData)
-                });
+//            fetch(chartIndex[0].data_file)
+//                .then(response => response.json())
+//                .then(chartData => {
+//                    console.log(chartData)
+//                    const context = document.getElementById("chart-canvas-" + 0);
+//                    attachBarChart(context, chartData)
+//                    // attachBarChart(context, barData)
+//                });
         });
 });
 
@@ -235,6 +239,3 @@ forThePastAllDates.addEventListener('click', () => {
     location.reload();
 });
 
-async function wait_promises(results) {
-    console.log(await Promise.all(results))
-}
