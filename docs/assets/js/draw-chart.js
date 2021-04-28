@@ -173,7 +173,8 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(response => response.json())
         .then(chartIndex => {
             const content = document.importNode(templateContent, true);
-            const renderedContent = renderChartContainerTemplate(content, chartIndex[chartIndex.length], chartIndex.length);
+            const renderedContent = renderChartContainerTemplate(
+                            content, {"caption": "Download count"}, chartIndex.length);
             parentNode.appendChild(renderedContent);
 
             var barData = new Array(chartIndex.length)
