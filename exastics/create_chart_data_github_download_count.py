@@ -94,7 +94,6 @@ if __name__ == '__main__':
     github_reositories = exastics._reposlist.publish_api(base_dir)
 
     chart_index = []
-    total_index = []
     for github_repository in github_reositories:
         if (github_repository == "gathering" or github_repository == "setup_paragen"):
             print(github_repository)
@@ -117,23 +116,6 @@ if __name__ == '__main__':
 
         with open(output_file, 'w') as f:
             json.dump(chart_data, f, indent=4)
-
-        total_index.append({
-            'date': chart_data[0]["points"][-1]["x"],
-            'count_accum': chart_data[0]["points"][-1]["y"],
-            'count_today': chart_data[0]["points"][-1]["y"] - chart_data[0]["points"][-2]["y"],
-            'repos': github_repository
-        })
-
-    output_file = pathlib.PurePath(f'./docs/assets/chart-data/all-repos-github-download-count.json')
-
-    chart_index.insert(0, {
-        'caption'   : f'download count',
-        'data_file' : f'assets/chart-data/all-repos-github-download-count.json'
-    })
-
-    with open(output_file, 'w') as f:
-        json.dump(total_index, f, indent=4)
 
     output_file = pathlib.PurePath(f'./docs/assets/chart-index.json')
 
