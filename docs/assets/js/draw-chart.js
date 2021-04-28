@@ -157,7 +157,7 @@ function attachBarChart(context, chartData) {
     });
 }
 
-async function wait_barData_Promises(results) {
+async function wait_barData_Promises(barData) {
     const context = document.getElementById("chart-canvas-" + 0);
     attachBarChart(context, await Promise.all(barData))
 }
