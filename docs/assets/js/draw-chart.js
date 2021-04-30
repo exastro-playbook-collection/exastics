@@ -46,7 +46,7 @@ function trimChartData(forPastDays, chartDataOrigin) {
     
     var chartDataTrimed = [];
     dateTrimed = new Date();
-    dateTrimed.setDate(dateTrimed.getDate() - forPastDays);
+    dateTrimed.setDate(dateTrimed.getDate() - forPastDays - 1);
 
     for (entryOrigin of chartDataOrigin) {
         entryTrimed = {
