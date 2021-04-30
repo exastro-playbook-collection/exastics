@@ -53,9 +53,10 @@ def collect_tag_time_series(tag_time_series, dt, releases):
 
 
 def create_chart_data_entry(tag_name):
-    download_counts = {}
 
     def download_counter(github_tag):
+        download_counts = {}
+
         for asset in github_tag.assets:
             download_counts[asset.id] = asset.download_count
         
@@ -72,7 +73,6 @@ def create_chart_data_entry(tag_name):
 
 def create_chart_data(tag_time_series):
     chart_data = []
-    print(tag_time_series)
     
     for tag_name in sorted(tag_time_series.keys(), reverse=True):
         entry = create_chart_data_entry(tag_name)
