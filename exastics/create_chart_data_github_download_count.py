@@ -23,7 +23,7 @@ class GitHubTag:
 class GitHubAsset:
     def __init__(self, asset):
         self.id = asset['id']
-        self.name = asset['name']
+        self.asset_name = asset['name']
         self.download_count = asset['download_count']
 
 
@@ -58,6 +58,8 @@ def create_chart_data_entry(tag_name):
         download_counts = {}
 
         for asset in github_tag.assets:
+            print(asset.asset_name)
+            print(asset.download_count)
             download_counts[asset.id] = asset.download_count
         
         return sum(download_counts.values())
