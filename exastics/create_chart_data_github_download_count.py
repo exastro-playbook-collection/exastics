@@ -35,13 +35,16 @@ def append_tag_time_series(tag_time_series, dt, github_tag):
         raise
 
 
+# リリース情報を整理
 def collect_tag_time_series(tag_time_series, dt, releases):
     all_assets = []
 
+    # リリース情報をタグごとに分離
     for release in releases:
         github_tag = GitHubTag(release)
         append_tag_time_series(tag_time_series, dt, github_tag)
                 
+        # total用に集計しておく
         all_assets += release['assets']
     
     presudo_github_tag = GitHubTag({
@@ -58,8 +61,9 @@ def create_chart_data_entry(tag_name):
         download_counts = {}
 
         for asset in github_tag.assets:
-            if ".tar.gz" not in asset.asset_name:
-                continue
+            # 特定のassetのみ集計したい場合は以下挿入
+            # if ".tar.gz" not in asset.asset_name:
+            #     continue
             download_counts[asset.id] = asset.download_count
         
         return sum(download_counts.values())
@@ -73,6 +77,7 @@ def create_chart_data_entry(tag_name):
     }
 
 
+# リリース情報からchartData作成
 def create_chart_data(tag_time_series):
     chart_data = []
     
@@ -102,13 +107,13 @@ if __name__ == '__main__':
             print(github_repository)
             continue
 
-        # DL数を取得
+        # リリース情報を整理
         base_dir = pathlib.PurePath(github_account, github_repository)
         tag_time_series = {}
         for dt, github_releases in exastics._chartdata.get_datetime_and_json_data(base_dir):
             collect_tag_time_series(tag_time_series, dt, github_releases)
 
-        # chartData作成
+        # リリース情報からchartData作成
         chart_data = create_chart_data(tag_time_series)
 
         # chartDataファイルに出力
