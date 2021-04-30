@@ -201,6 +201,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 });
 
+var forThePast001Dates = document.getElementById('forThePast001Dates');
+forThePast001Dates.addEventListener('click', () => {
+    sessionStorage.setItem('forThePastDates', '1');
+    location.reload();
+});
+
 var forThePast007Dates = document.getElementById('forThePast007Dates');
 forThePast007Dates.addEventListener('click', () => {
     sessionStorage.setItem('forThePastDates', '7');
