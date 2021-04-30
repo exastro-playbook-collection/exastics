@@ -58,8 +58,8 @@ def create_chart_data_entry(tag_name):
         download_counts = {}
 
         for asset in github_tag.assets:
-            print(asset.asset_name)
-            print(asset.download_count)
+            if ".tar.gz" not in asset.asset_name:
+                continue
             download_counts[asset.id] = asset.download_count
         
         return sum(download_counts.values())
