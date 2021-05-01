@@ -56,7 +56,6 @@ def collect_tag_time_series(tag_time_series, dt, releases):
 
 
 def create_chart_data_entry(tag_name):
-
     def download_counter(github_tag):
         download_counts = {}
 
