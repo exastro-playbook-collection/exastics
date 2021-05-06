@@ -117,8 +117,10 @@ function attachBarChart(context, chartData) {
     var labels = [];
     var data = [];
     for (entry of chartData) {
-        labels.push(entry.repos);
-        data.push(entry.count);
+        if (entry != null) {
+          labels.push(entry.repos);
+          data.push(entry.count);
+        }
     }
     
     const myBarChart = new Chart(context, {
