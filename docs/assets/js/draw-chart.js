@@ -179,6 +179,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
             var barData = new Array(chartIndex.length)
             for (let i = 0; i < chartIndex.length; i++) {
+                if (chartIndex[i].caption == "gathering" ||
+                    chartIndex[i].caption == "setup_paragen" ||
+                    ~chartIndex[i].caption.indexOf("_extracting")) {
+                    console.log(chartIndex[i].caption);
+                    continue;
+                }
+                
                 const content = document.importNode(templateContent, true);
                 const renderedContent = renderChartContainerTemplate(content, chartIndex[i], i);
                 parentNode.appendChild(renderedContent);
