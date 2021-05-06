@@ -117,10 +117,8 @@ function attachBarChart(context, chartData) {
     var labels = [];
     var data = [];
     for (entry of chartData) {
-        if (entry != null) {
-          labels.push(entry.repos);
-          data.push(entry.count);
-        }
+        labels.push(entry.repos);
+        data.push(entry.count);
     }
     
     const myBarChart = new Chart(context, {
@@ -164,7 +162,10 @@ async function wait_barData_Promises(barData) {
     attachBarChart(context, await Promise.all(barData))
 }
 
+// 画面描画発生時トリガ
 document.addEventListener('DOMContentLoaded', () => {
+
+    // 表示範囲情報をsessionStorageから取り出し
     const saveState = sessionStorage.getItem('forThePastDates');
     const forThePastDates = saveState ? parseInt(saveState, 10) : 99999;
 
@@ -174,20 +175,15 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch('assets/chart-index.json')
         .then(response => response.json())
         .then(chartIndex => {
+            // 最初にBar Chart用の表示領域を確保しておく（ID99999はダミー）
             const content = document.importNode(templateContent, true);
             const renderedContent = renderChartContainerTemplate(
                             content, {"caption": "Download count"}, 99999);
             parentNode.appendChild(renderedContent);
 
+            // Bar Chart用のデータ配列を初期化
             var barData = new Array(chartIndex.length)
             for (let i = 0; i < chartIndex.length; i++) {
-                if (chartIndex[i].caption == "gathering" ||
-                    chartIndex[i].caption == "setup_paragen" ||
-                    chartIndex[i].caption.indexOf("_extracting") >= 0) {
-                    console.log(chartIndex[i].caption);
-                    continue;
-                }
-                
                 const content = document.importNode(templateContent, true);
                 const renderedContent = renderChartContainerTemplate(content, chartIndex[i], i);
                 parentNode.appendChild(renderedContent);
@@ -196,9 +192,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     .then(response => response.json())
                     .then(chartDataOrigin => trimChartData(forThePastDates, chartDataOrigin))
                     .then(chartData => {
+                        // Line Chart描画
                         const context = document.getElementById("chart-canvas-" + i);
                         attachLineChart(context, chartData)
 
+                        // Bar Chart用データ（promise）を返却
                         return({
                             date: chartData[0].points.slice(-1)[0].x,
                             count: chartData[0].points.slice(-1)[0].y,
@@ -206,9 +204,14 @@ document.addEventListener('DOMContentLoaded', () => {
                         });
                     });
             }
+
+            // Bar Chart用のデータ（promise）が全て完了するのを待ってBar Chart描画
             wait_barData_Promises(barData)
         });
 });
+
+// ボタン押下トリガセット
+// 押下したボタンに応じた表示範囲情報をsessionStorageに設定し再描画実施
 
 var forThePast001Dates = document.getElementById('forThePast001Dates');
 forThePast001Dates.addEventListener('click', () => {
