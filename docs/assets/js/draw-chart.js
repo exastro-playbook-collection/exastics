@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
             for (let i = 0; i < chartIndex.length; i++) {
                 if (chartIndex[i].caption == "gathering" ||
                     chartIndex[i].caption == "setup_paragen" ||
-                    ~chartIndex[i].caption.indexOf("_extracting")) {
+                    chartIndex[i].caption.indexOf("_extracting") >= 0) {
                     console.log(chartIndex[i].caption);
                     continue;
                 }
