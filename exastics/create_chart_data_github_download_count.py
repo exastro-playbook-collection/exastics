@@ -105,7 +105,6 @@ if __name__ == '__main__':
         if ("gathering"     == github_repository or
             "setup_paragen" == github_repository or
             "_extracting"   in github_repository):
-            print(github_repository)
             continue
 
         # リリース情報を整理
