@@ -1,13 +1,5 @@
 [
     {
-        "caption": "Apache24_extracting_linux",
-        "data_file": "assets/chart-data/Apache24_extracting_linux-github-download-count.json"
-    },
-    {
-        "caption": "Apache24_extracting_windows",
-        "data_file": "assets/chart-data/Apache24_extracting_windows-github-download-count.json"
-    },
-    {
         "caption": "Apache24_gathering_linux",
         "data_file": "assets/chart-data/Apache24_gathering_linux-github-download-count.json"
     },
@@ -36,10 +28,6 @@
         "data_file": "assets/chart-data/Apache_setup-github-download-count.json"
     },
     {
-        "caption": "gathering",
-        "data_file": "assets/chart-data/gathering-github-download-count.json"
-    },
-    {
         "caption": "IIS_Install",
         "data_file": "assets/chart-data/IIS_Install-github-download-count.json"
     },
@@ -48,16 +36,8 @@
         "data_file": "assets/chart-data/IIS_Setup-github-download-count.json"
     },
     {
-        "caption": "IIS_WS2016_extracting",
-        "data_file": "assets/chart-data/IIS_WS2016_extracting-github-download-count.json"
-    },
-    {
         "caption": "IIS_WS2016_gathering",
         "data_file": "assets/chart-data/IIS_WS2016_gathering-github-download-count.json"
-    },
-    {
-        "caption": "Nginx_extracting",
-        "data_file": "assets/chart-data/Nginx_extracting-github-download-count.json"
     },
     {
         "caption": "Nginx_gathering",
@@ -92,20 +72,12 @@
         "data_file": "assets/chart-data/OS-Windows2019-github-download-count.json"
     },
     {
-        "caption": "OS_extracting",
-        "data_file": "assets/chart-data/OS_extracting-github-download-count.json"
-    },
-    {
         "caption": "OS_gathering",
         "data_file": "assets/chart-data/OS_gathering-github-download-count.json"
     },
     {
         "caption": "RHEL",
         "data_file": "assets/chart-data/RHEL-github-download-count.json"
-    },
-    {
-        "caption": "setup_paragen",
-        "data_file": "assets/chart-data/setup_paragen-github-download-count.json"
     },
     {
         "caption": "SqlServer_install",
@@ -160,24 +132,12 @@
         "data_file": "assets/chart-data/Zabbix40-Server_setup-github-download-count.json"
     },
     {
-        "caption": "Zabbix40_Agent_extracting_linux",
-        "data_file": "assets/chart-data/Zabbix40_Agent_extracting_linux-github-download-count.json"
-    },
-    {
-        "caption": "Zabbix40_Agent_extracting_windows",
-        "data_file": "assets/chart-data/Zabbix40_Agent_extracting_windows-github-download-count.json"
-    },
-    {
         "caption": "Zabbix40_Agent_gathering_linux",
         "data_file": "assets/chart-data/Zabbix40_Agent_gathering_linux-github-download-count.json"
     },
     {
         "caption": "Zabbix40_Agent_gathering_windows",
         "data_file": "assets/chart-data/Zabbix40_Agent_gathering_windows-github-download-count.json"
-    },
-    {
-        "caption": "Zabbix40_Server_extracting_linux",
-        "data_file": "assets/chart-data/Zabbix40_Server_extracting_linux-github-download-count.json"
     },
     {
         "caption": "Zabbix40_Server_gathering_linux",
