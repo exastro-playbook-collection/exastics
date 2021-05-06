@@ -1,13 +1,5 @@
 [
     {
-        "caption": "Apache24_extracting_linux",
-        "data_file": "assets/chart-data/Apache24_extracting_linux-github-download-count.json"
-    },
-    {
-        "caption": "Apache24_extracting_windows",
-        "data_file": "assets/chart-data/Apache24_extracting_windows-github-download-count.json"
-    },
-    {
         "caption": "Apache24_gathering_linux",
         "data_file": "assets/chart-data/Apache24_gathering_linux-github-download-count.json"
     },
@@ -44,16 +36,8 @@
         "data_file": "assets/chart-data/IIS_Setup-github-download-count.json"
     },
     {
-        "caption": "IIS_WS2016_extracting",
-        "data_file": "assets/chart-data/IIS_WS2016_extracting-github-download-count.json"
-    },
-    {
         "caption": "IIS_WS2016_gathering",
         "data_file": "assets/chart-data/IIS_WS2016_gathering-github-download-count.json"
-    },
-    {
-        "caption": "Nginx_extracting",
-        "data_file": "assets/chart-data/Nginx_extracting-github-download-count.json"
     },
     {
         "caption": "Nginx_gathering",
@@ -86,10 +70,6 @@
     {
         "caption": "OS-Windows2019",
         "data_file": "assets/chart-data/OS-Windows2019-github-download-count.json"
-    },
-    {
-        "caption": "OS_extracting",
-        "data_file": "assets/chart-data/OS_extracting-github-download-count.json"
     },
     {
         "caption": "OS_gathering",
@@ -152,24 +132,12 @@
         "data_file": "assets/chart-data/Zabbix40-Server_setup-github-download-count.json"
     },
     {
-        "caption": "Zabbix40_Agent_extracting_linux",
-        "data_file": "assets/chart-data/Zabbix40_Agent_extracting_linux-github-download-count.json"
-    },
-    {
-        "caption": "Zabbix40_Agent_extracting_windows",
-        "data_file": "assets/chart-data/Zabbix40_Agent_extracting_windows-github-download-count.json"
-    },
-    {
         "caption": "Zabbix40_Agent_gathering_linux",
         "data_file": "assets/chart-data/Zabbix40_Agent_gathering_linux-github-download-count.json"
     },
     {
         "caption": "Zabbix40_Agent_gathering_windows",
         "data_file": "assets/chart-data/Zabbix40_Agent_gathering_windows-github-download-count.json"
-    },
-    {
-        "caption": "Zabbix40_Server_extracting_linux",
-        "data_file": "assets/chart-data/Zabbix40_Server_extracting_linux-github-download-count.json"
     },
     {
         "caption": "Zabbix40_Server_gathering_linux",
