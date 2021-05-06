@@ -102,11 +102,11 @@ if __name__ == '__main__':
     chart_index = []
     for github_repository in github_reositories:
         # 共通部品（'gathering'、'setup_paragen'）は収集対象から外す
-        if ("gathering"     == github_repository or
-            "setup_paragen" == github_repository or
-            "_extracting"   in github_repository):
-            print(github_repository)
-            continue
+#        if ("gathering"     == github_repository or
+#            "setup_paragen" == github_repository or
+#            "_extracting"   in github_repository):
+#            print(github_repository)
+#            continue
 
         # リリース情報を整理
         base_dir = pathlib.PurePath(github_account, github_repository)
