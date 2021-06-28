@@ -1,5 +1,7 @@
 name: workflow (collect data and create chart data)
 on:
+  workflow_dispatch:
+  
   schedule:
     - cron: '00 14 * * *' # 23:00 in JST
 
