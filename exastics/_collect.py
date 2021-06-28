@@ -30,6 +30,6 @@ def publish_api(url_parts, headers, output_dir):
 
     os.makedirs(filepath.parent, exist_ok=True)
     with open(filepath, mode='w') as f:
-        f.write(json.dumps(json.loads(response.text)))
+        f.write(json.dumps(json.loads(response.text),separators=(',',':')).replace("\\n",""))
     
     print("succeeded")
