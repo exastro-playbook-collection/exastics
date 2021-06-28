@@ -57,6 +57,9 @@ def collect_tag_time_series(tag_time_series, dt, releases):
 
 def create_chart_data_entry(tag_name):
     def download_counter(github_tag):
+        import pprint
+        pprint.pprint(github_tag)
+        
         download_counts = {}
 
         for asset in github_tag.assets:
