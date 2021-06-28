@@ -67,9 +67,9 @@ def create_chart_data_entry(tag_name):
             #     continue
             download_counts[asset.id] = asset.download_count
 
-            pprint(asset.asset_name)
-            pprint(asset.id)
-            pprint(asset.download_count)
+            print(asset.asset_name)
+            print(asset.id)
+            print(asset.download_count)
 
         return sum(download_counts.values())
 
