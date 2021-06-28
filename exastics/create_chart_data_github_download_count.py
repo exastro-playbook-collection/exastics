@@ -38,10 +38,6 @@ def append_tag_time_series(tag_time_series, dt, github_tag):
 # リリース情報を整理
 def collect_tag_time_series(tag_time_series, dt, releases):
     all_assets = []
-
-    import pprint
-    pprint.pprint(dt)
-    pprint.pprint(releases)
     
     # リリース情報をタグごとに分離
     for release in releases:
