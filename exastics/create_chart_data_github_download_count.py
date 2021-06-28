@@ -40,7 +40,6 @@ def collect_tag_time_series(tag_time_series, dt, releases):
     all_assets = []
 
     import pprint
-    pprint.pprint(tag_time_series)
     pprint.pprint(dt)
     pprint.pprint(releases)
     
