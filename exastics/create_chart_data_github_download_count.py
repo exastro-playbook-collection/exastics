@@ -57,8 +57,6 @@ def collect_tag_time_series(tag_time_series, dt, releases):
 
 def create_chart_data_entry(tag_name):
     def download_counter(github_tag):
-        print(github_tag)
-        
         download_counts = {}
 
         for asset in github_tag.assets:
@@ -66,10 +64,6 @@ def create_chart_data_entry(tag_name):
             # if ".tar.gz" not in asset.asset_name:
             #     continue
             download_counts[asset.id] = asset.download_count
-
-            print(asset.asset_name)
-            print(asset.id)
-            print(asset.download_count)
 
         return sum(download_counts.values())
 
@@ -88,6 +82,9 @@ def create_chart_data(tag_time_series):
     
     for tag_name in sorted(tag_time_series.keys(), reverse=True):
         entry = create_chart_data_entry(tag_name)
+
+        import pprint
+        pprint.pprint(entry)
 
         if tag_name == 'total':
             chart_data.insert(0, entry)
