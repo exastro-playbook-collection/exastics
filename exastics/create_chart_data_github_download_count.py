@@ -39,6 +39,11 @@ def append_tag_time_series(tag_time_series, dt, github_tag):
 def collect_tag_time_series(tag_time_series, dt, releases):
     all_assets = []
 
+    import pprint
+    pprint.pprint(tag_time_series)
+    pprint.pprint(dt)
+    pprint.pprint(releases)
+    
     # リリース情報をタグごとに分離
     for release in releases:
         github_tag = GitHubTag(release)
@@ -82,9 +87,6 @@ def create_chart_data(tag_time_series):
     
     for tag_name in sorted(tag_time_series.keys(), reverse=True):
         entry = create_chart_data_entry(tag_name)
-
-        import pprint
-        pprint.pprint(entry)
 
         if tag_name == 'total':
             chart_data.insert(0, entry)
