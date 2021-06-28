@@ -53,7 +53,8 @@ function trimChartData(forPastDays, chartDataOrigin) {
             series : entryOrigin.series,
             points : []
         };
-
+        console.log(entryOrigin.series)
+        
         var yBase = -1;
         for (pointOrigin of entryOrigin["points"]) {
             dateOrigin = new Date(pointOrigin.x);
