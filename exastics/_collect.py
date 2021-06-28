@@ -5,6 +5,7 @@ import os
 import requests
 import sys
 import urllib.parse
+import json
 
 def publish_api(url_parts, headers, output_dir):
     dt = datetime.datetime.now(pytz.timezone('Asia/Tokyo'))
