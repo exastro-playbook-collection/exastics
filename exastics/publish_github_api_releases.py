@@ -7,6 +7,25 @@ import sys
 import urllib.parse
 import pprint
 
+trashed_lists = {
+    'OS-Windows2019': [{
+        'tag_name': 'v21.04',
+        'name': 'trashed_01',
+        'id': 37565865,
+        'download_count': 14,
+    },{
+        'tag_name': 'v21.04',
+        'name': 'trashed_02',
+        'id': 38306542,
+        'download_count': 36,
+    }],
+    'OS-RHEL8': [{
+        'tag_name': 'v21.04',
+        'name': 'trashed_03',
+        'id': 38306053,
+        'download_count': 39,
+    }]
+}
 
 if __name__ == '__main__':
     github_account = sys.argv[1]
@@ -33,5 +52,8 @@ if __name__ == '__main__':
 
         base_dir = pathlib.PurePath(github_account, github_repository)
 
-        exastics._collect.publish_api(url_parts, headers, base_dir)
+        trashed_list = None
+        if github_repository in trashed_lists:
+            trashed_list = trashed_lists[github_repository]
+        exastics._collect.publish_api(url_parts, headers, base_dir, trashed_list)
 
