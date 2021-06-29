@@ -7,7 +7,7 @@ import sys
 import urllib.parse
 import json
 
-def publish_api(url_parts, headers, output_dir, dummys = None):
+def publish_api(url_parts, headers, output_dir, trashed_list = None):
     dt = datetime.datetime.now(pytz.timezone('Asia/Tokyo'))
 
     current_year_month = dt.strftime('%Y-%m')
@@ -32,14 +32,14 @@ def publish_api(url_parts, headers, output_dir, dummys = None):
     os.makedirs(filepath.parent, exist_ok=True)
     with open(filepath, mode='w') as f:
         temp = json.loads(response.text)
-        if dummys:
-            for dummy in dummys:
+        if trashed_list:
+            for entry in trashed_list:
                 for index in range(0, len(temp)):
-                    if temp[index]['tag_name'] == dummy['tag_name']:
+                    if temp[index]['tag_name'] == entry['tag_name']:
                         temp[index]['assets'].append({
-                            'id': dummy['id'],
-                            'name': dummy['name'],
-                            'dounload_count': dummy['download_count'],
+                            'id': entry['id'],
+                            'name': entry['name'],
+                            'download_count': entry['download_count'],
                         })
         f.write(json.dumps(temp, separators=(',',':')).replace("\\n",""))
     
