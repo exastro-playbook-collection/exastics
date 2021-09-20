@@ -76,6 +76,10 @@
         "data_file": "assets/chart-data/OS_gathering-github-download-count.json"
     },
     {
+        "caption": "publishing_test",
+        "data_file": "assets/chart-data/publishing_test-github-download-count.json"
+    },
+    {
         "caption": "RHEL",
         "data_file": "assets/chart-data/RHEL-github-download-count.json"
     },
