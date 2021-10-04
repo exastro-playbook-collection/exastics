@@ -72,16 +72,8 @@
         "data_file": "assets/chart-data/OS-Windows2019-github-download-count.json"
     },
     {
-        "caption": "OS_gathering",
-        "data_file": "assets/chart-data/OS_gathering-github-download-count.json"
-    },
-    {
         "caption": "publishing_test",
         "data_file": "assets/chart-data/publishing_test-github-download-count.json"
-    },
-    {
-        "caption": "RHEL",
-        "data_file": "assets/chart-data/RHEL-github-download-count.json"
     },
     {
         "caption": "SqlServer_install",
@@ -90,10 +82,6 @@
     {
         "caption": "SqlServer_preinstall",
         "data_file": "assets/chart-data/SqlServer_preinstall-github-download-count.json"
-    },
-    {
-        "caption": "Windows",
-        "data_file": "assets/chart-data/Windows-github-download-count.json"
     },
     {
         "caption": "Zabbix40-Agent_install",
