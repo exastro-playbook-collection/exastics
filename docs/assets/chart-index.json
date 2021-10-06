@@ -72,10 +72,6 @@
         "data_file": "assets/chart-data/OS-Windows2019-github-download-count.json"
     },
     {
-        "caption": "publishing_test",
-        "data_file": "assets/chart-data/publishing_test-github-download-count.json"
-    },
-    {
         "caption": "SqlServer_install",
         "data_file": "assets/chart-data/SqlServer_install-github-download-count.json"
     },
