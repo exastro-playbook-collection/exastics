@@ -103,20 +103,24 @@ if __name__ == '__main__':
     for github_repository in github_reositories:
         # 共通部品（'gathering'、'setup_paragen'）は収集対象から外す
         if ("gathering"     == github_repository or
-            "setup_paragen" == github_repository or
-            "_extracting"   in github_repository):
+            "setup_paragen" == github_repository):
             continue
 
-        if ("OS-RHEL8"     == github_repository or
-            "OS-RHEL7" == github_repository or
-            "OS-Windows2016" == github_repository or
-            "OS-Windows2019" == github_repository or
-            "Nginx"   in github_repository or
-            "SqlServer"   in github_repository or
-            "IIS"   in github_repository or
-            "Apache"   in github_repository or
-            "Zabbix"   in github_repository):
-            continue
+        # if ("gathering"     == github_repository or
+        #     "setup_paragen" == github_repository or
+        #     "_extracting"   in github_repository):
+        #     continue
+
+        # if ("OS-RHEL8"     == github_repository or
+        #     "OS-RHEL7" == github_repository or
+        #     "OS-Windows2016" == github_repository or
+        #     "OS-Windows2019" == github_repository or
+        #     "Nginx"   in github_repository or
+        #     "SqlServer"   in github_repository or
+        #     "IIS"   in github_repository or
+        #     "Apache"   in github_repository or
+        #     "Zabbix"   in github_repository):
+        #     continue
 
         # リリース情報を整理
         base_dir = pathlib.PurePath(github_account, github_repository)
