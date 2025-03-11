@@ -1,10 +1,18 @@
 [
     {
-        "caption": "gathering",
-        "data_file": "assets/chart-data/gathering-github-download-count.json"
+        "caption": "ita_role_adapter",
+        "data_file": "assets/chart-data/ita_role_adapter-github-download-count.json"
     },
     {
-        "caption": "setup_paragen",
-        "data_file": "assets/chart-data/setup_paragen-github-download-count.json"
+        "caption": "OS-RHEL9",
+        "data_file": "assets/chart-data/OS-RHEL9-github-download-count.json"
+    },
+    {
+        "caption": "OS-Windows2022",
+        "data_file": "assets/chart-data/OS-Windows2022-github-download-count.json"
+    },
+    {
+        "caption": "parameter_generate",
+        "data_file": "assets/chart-data/parameter_generate-github-download-count.json"
     }
 ]
