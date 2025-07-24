@@ -36,6 +36,14 @@
         "data_file": "assets/chart-data/Apache_setup-github-download-count.json"
     },
     {
+        "caption": "Cmd-Executor-RHEL9",
+        "data_file": "assets/chart-data/Cmd-Executor-RHEL9-github-download-count.json"
+    },
+    {
+        "caption": "Cmd-Executor-Windows2022",
+        "data_file": "assets/chart-data/Cmd-Executor-Windows2022-github-download-count.json"
+    },
+    {
         "caption": "IIS_Install",
         "data_file": "assets/chart-data/IIS_Install-github-download-count.json"
     },
